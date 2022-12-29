@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
@@ -43,24 +44,29 @@ class AuthController extends Controller
         ]);
     }
 
-
     public function login(Request $request)
     {
-        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-            $auth = Auth::user();
-            $success['token'] = $auth->createToken('auth_token')->plainTextToken;
-            $success['nama_user'] = $auth->nama_user;
+        $users = User::where('email', $request->email)->first();
+        if (!$users || !Hash::check($request->password, $users->password)) {
             return response()->json([
-                'success' => true,
-                'message' => 'Login sukses',
-                'data'    => $success
-            ]);
-        } else {
-            return response()->json([
-                'success' => false,
-                'message' => 'Silahkan cek kembali email dan passwordnya',
-                'data'    => null
-            ]);
+                'message' => 'Email dan password salah'
+            ],401);
         }
+        $token = $users->createToken('token-name')->plainTextToken;
+        return response()->json([
+            'message' => 'Login berhasil',
+            'token'   => $token,
+            'data'    => $users,
+            
+        ],200);
+    }
+
+    public function logout(Request $request)
+    {
+        $users = $request->user();
+        $users->currentAccessToken()->delete();
+        return response()->json([
+            'message' => 'Logout berhasil',
+        ],200);
     }
 }

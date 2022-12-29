@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('nama_user');
             $table->enum('jenis_kelamin', ['L','P']);
+            $table->enum('level', ['A','P']);
             $table->char('no_hp', 20);
             $table->string('alamat', 100);
             $table->string('email')->unique();
