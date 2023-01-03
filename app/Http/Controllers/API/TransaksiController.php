@@ -10,10 +10,9 @@ use Illuminate\Http\Request;
 
 class TransaksiController extends Controller
 {
+
     public function index(Request $request)
     {
-        // dd($request->all());
-        // $transaksi = Transaksi::all();
         $transaksi = Transaksi::with('barang', 'user')->get();
         return new ResourceApi(true, 'Data Transaksi ', $transaksi);
     }
@@ -22,5 +21,23 @@ class TransaksiController extends Controller
     {
         $user = User::with('transaksi')->where('id', $id)->first();
         return new ResourceApi(true, 'Data Transaksi ', $user);
+    }
+
+    public function bayar(Request $request)
+    {
+        $request->validate([
+            'user_id' => 'required',
+            'barang_id'=> 'required',
+            'bayar' => 'required',
+        ]);
+        $pembayaran = new Transaksi();
+        $pembayaran->user_id   = $request->user_id;
+        $pembayaran->barang_id = $request->barang_id;
+        $pembayaran->bayar     = $request->bayar;
+        $pembayaran->save();
+        return response()->json([
+            'message' => 'Data pembayaran berhasil',
+            'data'    =>$pembayaran
+        ], 200);
     }
 }

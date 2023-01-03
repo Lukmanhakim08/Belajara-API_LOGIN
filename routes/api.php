@@ -30,8 +30,11 @@ Route::group(['middleware' => 'auth:sanctum'], function() {
     Route::get('logout', [AuthController::class, 'logout']);
     Route::apiResource('user', UserController::class);
     Route::apiResource('barang', BarangController::class);
+
+    //transaksi
     Route::get('transaksi', [TransaksiController::class, 'index']);
     Route::get('transaksi/{id}', [TransaksiController::class, 'getUser']);
+    Route::post('bayar', [TransaksiController::class, 'bayar']);
 });
 
 Route::post('bayar', [TransaksiController::class, 'bayar']);
