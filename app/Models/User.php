@@ -26,6 +26,11 @@ class User extends Authenticatable
         'password',
     ];
 
+    public function transaksi()
+    {
+        return $this->hasMany('App\Models\Transaksi', 'user_id');
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *
