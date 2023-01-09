@@ -11,15 +11,15 @@ use Illuminate\Http\Request;
 class TransaksiController extends Controller
 {
 
-    public function index(Request $request)
+    public function index(Request $request )
     {
-        $transaksi = Transaksi::with('barang', 'user')->get();
+        $transaksi = Transaksi::with('user', 'barang')->get()->first();
         return new ResourceApi(true, 'Data Transaksi ', $transaksi);
     }
 
     public function getUser($id)
     {
-        $user = User::with('transaksi')->where('id', $id)->first();
+        $user = User::with('transaksi')->get()->where('id', $id);
         return new ResourceApi(true, 'Data Transaksi ', $user);
     }
 

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Barang;
 
 class User extends Authenticatable
 {
@@ -29,6 +30,7 @@ class User extends Authenticatable
     public function transaksi()
     {
         return $this->hasMany('App\Models\Transaksi', 'user_id');
+        return $this->hasMany('App\Models\Transaksi', 'barang_id');
     }
 
     /**
