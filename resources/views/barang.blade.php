@@ -32,11 +32,13 @@
                         @endphp
                         <tr>
                             <td style="width: 20px" class="text-center">{{ $no }}</td>
-                            <td style="width: 250px">{{ $item['nama_barang'] }}</td>
+                            {{-- <td style="width: 250px">{{ $item['nama_barang'] }}</td>
                             <td style="width: 250px">{{ $item['harga_barang'] }}</td>
                             <td style="width: 250px">{{ $item['stok_barang'] }}</td>
-                            <img src="{{ $item['stok_barang'] }}" alt="">
-                            <td style="width: 250px">{{$item['foto_barang']}}</td>
+                            <td style="width: 250px">{{$item['foto_barang']}}</td> --}}
+                            <td id="fotos" class="image-input-wrapper -300px h-250px"
+                                style="background-image:url({{url('storage/barang') }}/{{$one-}})">
+                            </td>
                             {{-- <td style="width: 30px" class="text-center">
                             <a href="{{ 'templatesurat/' . $item['template'] }}"><i
                                     class="lni lni-wordpress"></i> Dokumen</a>
