@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 03 Jan 2023 pada 17.26
+-- Waktu pembuatan: 10 Jan 2023 pada 16.23
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 8.1.6
 
@@ -42,9 +42,9 @@ CREATE TABLE `barangs` (
 --
 
 INSERT INTO `barangs` (`id`, `nama_barang`, `harga_barang`, `stok_barang`, `foto_barang`, `created_at`, `updated_at`) VALUES
-(1, 'Laptop Tosiba', '8500000', '9', 'barang/AEe4NdrSs0RFZmO5cHw99l6YZKBvJGlyMYqdL6v0.jpg', '2022-12-29 04:12:07', '2022-12-29 04:52:05'),
-(2, 'Laptop Asus', '8000000', '3', 'barang/VLLnHPZccYUC1xxdKZlhpNTTK5Cw75nKfWyhzLsV.jpg', '2023-01-03 08:44:57', '2023-01-03 08:44:57'),
-(3, 'Laptop Lenovo', '8000000', '3', 'barang/Of8a2ODl6O1kVCz8D0fRZEYeS9pFktw7oHoHImJE.jpg', '2023-01-03 08:45:30', '2023-01-03 08:45:30');
+(1, 'Laptop Lenovo', '8000000', '3', 'barang/WJyOUWDUnhTP3ya2wrPXwt8D8s1r9a7ZEekaEMSL.jpg', '2023-01-10 07:14:48', '2023-01-10 07:14:48'),
+(2, 'Laptop Asus', '8000000', '3', 'barang/nGgZlZXBBiRhBV3lkoN3fzHhZsDP0ca7PxG8OMew.jpg', '2023-01-10 07:24:02', '2023-01-10 07:24:02'),
+(3, 'Laptop Acer', '8000000', '3', 'barang/MGk6CoHAgB0p42pg4rJ3pKZeAD27vB0ePMhUDxzu.jpg', '2023-01-10 07:24:26', '2023-01-10 07:24:26');
 
 -- --------------------------------------------------------
 
@@ -79,12 +79,12 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(18, '2014_10_12_000000_create_users_table', 1),
-(19, '2014_10_12_100000_create_password_resets_table', 1),
-(20, '2019_08_19_000000_create_failed_jobs_table', 1),
-(21, '2019_12_14_000001_create_personal_access_tokens_table', 1),
-(22, '2022_12_28_150238_create_barangs_table', 1),
-(25, '2022_12_29_121205_create_transaksis_table', 2);
+(26, '2014_10_12_000000_create_users_table', 1),
+(27, '2014_10_12_100000_create_password_resets_table', 1),
+(28, '2019_08_19_000000_create_failed_jobs_table', 1),
+(29, '2019_12_14_000001_create_personal_access_tokens_table', 1),
+(30, '2022_12_28_150238_create_barangs_table', 1),
+(31, '2022_12_29_121205_create_transaksis_table', 1);
 
 -- --------------------------------------------------------
 
@@ -122,10 +122,10 @@ CREATE TABLE `personal_access_tokens` (
 --
 
 INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `name`, `token`, `abilities`, `last_used_at`, `expires_at`, `created_at`, `updated_at`) VALUES
-(1, 'App\\Models\\User', 1, 'auth_token', '5b36d9c5c06f2488a4a2cccf6b17e5955c96bad0d28e0b6536da0b13d0481348', '[\"*\"]', NULL, NULL, '2022-12-29 00:37:48', '2022-12-29 00:37:48'),
-(2, 'App\\Models\\User', 1, 'token-name', '748683462967d09c9395ab67bce4d63016b5b49e08da43ce06bc0417e3d079bb', '[\"*\"]', NULL, NULL, '2022-12-29 00:38:05', '2022-12-29 00:38:05'),
-(3, 'App\\Models\\User', 1, 'token-name', '892381fa5b25affd33c4416b15d5740945ce7ac25df54d3d31ae7d27b794701f', '[\"*\"]', '2023-01-03 09:17:20', NULL, '2022-12-29 23:57:08', '2023-01-03 09:17:20'),
-(4, 'App\\Models\\User', 1, 'token-name', '802fd61fc7a3afc53d5c4930026be718ff280b96c36dd1194d5f9d912c023f61', '[\"*\"]', '2023-01-03 08:45:30', NULL, '2023-01-03 08:44:41', '2023-01-03 08:45:30');
+(1, 'App\\Models\\User', 1, 'auth_token', 'cfa1522cf440f66ab592273749e6f9cf742c461ff2d7c9e91743103d54031e23', '[\"*\"]', NULL, NULL, '2023-01-09 08:43:49', '2023-01-09 08:43:49'),
+(2, 'App\\Models\\User', 1, 'token-name', '8eed6275dd43b55570d4af0b8fbb261af253419ebbd46341b3735d4b363fc1e9', '[\"*\"]', NULL, NULL, '2023-01-09 08:45:04', '2023-01-09 08:45:04'),
+(3, 'App\\Models\\User', 1, 'token-name', '3cabfb600df8b61041f0b2da6bafb417ceea002226b183bc7a786b91e8883e74', '[\"*\"]', '2023-01-10 07:25:54', NULL, '2023-01-10 07:08:42', '2023-01-10 07:25:54'),
+(4, 'App\\Models\\User', 1, 'token-name', 'fe66f4e93f4f84edaee52ccc541c27414ec41760783bf3a84fc27b50877fd7cf', '[\"*\"]', '2023-01-10 08:02:31', NULL, '2023-01-10 08:02:20', '2023-01-10 08:02:31');
 
 -- --------------------------------------------------------
 
@@ -147,8 +147,8 @@ CREATE TABLE `transaksis` (
 --
 
 INSERT INTO `transaksis` (`id`, `user_id`, `barang_id`, `bayar`, `created_at`, `updated_at`) VALUES
-(1, 1, 3, '800000', '2023-01-03 15:46:12', '2023-01-03 15:46:12'),
-(2, 1, 1, '9000000', '2023-01-03 09:24:42', '2023-01-03 09:24:42');
+(1, 1, 1, '9000000', '2023-01-10 07:25:34', '2023-01-10 07:25:34'),
+(2, 1, 2, '8000000', '2023-01-10 07:25:48', '2023-01-10 07:25:48');
 
 -- --------------------------------------------------------
 
@@ -160,7 +160,7 @@ CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `nama_user` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `jenis_kelamin` enum('L','P') COLLATE utf8mb4_unicode_ci NOT NULL,
-  `level` enum('A','P') COLLATE utf8mb4_unicode_ci NOT NULL,
+  `level` enum('A','U') COLLATE utf8mb4_unicode_ci NOT NULL,
   `no_hp` char(20) COLLATE utf8mb4_unicode_ci NOT NULL,
   `alamat` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -174,7 +174,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `nama_user`, `jenis_kelamin`, `level`, `no_hp`, `alamat`, `email`, `password`, `created_at`, `updated_at`) VALUES
-(1, 'Lukman Hakim', 'L', 'A', '081217876514', 'Desa Kalibuntu', 'lukman@gmail.com', '$2y$10$T8AkbVqZ71fFj/1uc8SuEe0eoVl0MswkOa9Lt0aT9dssbKTl1hcre', '2022-12-29 00:37:48', '2022-12-29 00:37:48');
+(1, 'Lukman Hakim', 'L', 'U', '081217876512', 'Desa Paiton', 'lukman@gmail.com', '$2y$10$QWaB990Vtv72QYjb2Zr51eYtWT0ND9DWv3tkn2EmEbKYibKNx8af.', '2023-01-09 08:43:49', '2023-01-09 08:43:49');
 
 --
 -- Indexes for dumped tables
@@ -246,7 +246,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT untuk tabel `personal_access_tokens`

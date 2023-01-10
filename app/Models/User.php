@@ -31,7 +31,6 @@ class User extends Authenticatable
     public function transaksi()
     {
         return $this->hasMany('App\Models\Transaksi', 'user_id');
-        return $this->hasMany('App\Models\Transaksi', 'barang_id');
     }
 
     /**

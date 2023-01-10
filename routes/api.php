@@ -30,14 +30,14 @@ Route::group(['middleware' => 'auth:sanctum'], function() {
     Route::get('logout', [AuthController::class, 'logout']);
     Route::apiResource('user', UserController::class);
     Route::apiResource('barang', BarangController::class);
-    Route::get('/fotobarang/{folder}/{data}', [BarangController::class, 'foto']);
-
+    
     //transaksi
     Route::get('transaksi', [TransaksiController::class, 'index']);
     Route::get('transaksi/{id}', [TransaksiController::class, 'getUser']);
     Route::post('bayar', [TransaksiController::class, 'bayar']);
 });
 
+Route::get('/fotobarang/{folder}/{data}', [BarangController::class, 'foto']);
 
 
 // Route::post('tambahbarang', [BarangController::class, 'create']);

@@ -16,11 +16,6 @@ class Transaksi extends Model
         'bayar',
     ];
 
-    public function byuser()
-    {
-        return $this->hasMany('App\Models\Transaksi', 'user_id');
-    }
-
     public function barang()
     {
         return $this->belongsTo(Barang::class, 'barang_id');
@@ -29,10 +24,5 @@ class Transaksi extends Model
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');
-    }
-
-    public function transaksi()
-    {
-        return $this->hasMany('App\Models\Transaksi', 'user_id');
     }
 }

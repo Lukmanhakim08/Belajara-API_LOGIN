@@ -20,15 +20,9 @@ class TransaksiController extends Controller
 
     public function getUser($id)
     {
-        $transaksi = User::with('transaksi')->get()->where('id',$id);
+        $transaksi = Transaksi::with('user','barang')->where('user_id', $id)->get();
         return new ResourceApi(true, 'Data Transaksi ', $transaksi);
     }
-
-    // public function getUser($id)
-    // {
-    //     $user = User::with('transaksi')->get()->where('id', $id);
-    //     return new ResourceApi(true, 'Data Transaksi ', $user);
-    // }
 
     public function bayar(Request $request)
     {
