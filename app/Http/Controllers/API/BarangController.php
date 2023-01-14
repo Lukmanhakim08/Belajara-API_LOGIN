@@ -7,6 +7,7 @@ use App\Http\Resources\ResourceApi;
 use App\Models\Barang;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Validator;
 
 class BarangController extends Controller
 {    
@@ -71,6 +72,35 @@ class BarangController extends Controller
             return response()->json([
                 'message' => 'Data tidak ada'
             ], 422);
+        }
+    }
+
+    public function update(Request $request, $id)
+    {
+        $validator = Validator::make($request->all(), [
+            'nama_barang' => 'required',
+            'harga_barang'=> 'required|numeric',
+            'stok_barang' => 'required|numeric',
+            'deskripsi'   => 'required',
+        ]);
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), 422);
+        } else{
+            $barang = Barang::find($id);
+            if ($barang) {
+                $barang->nama_barang = $request->nama_barang;
+                $barang->harga_barang = $request->harga_barang;
+                $barang->stok_barang = $request->stok_barang;
+                $barang->deskripsi = $request->deskripsi;
+                $barang->save();
+                return response()->json([
+                    'message' => 'Data barang berhasil di diupdate',
+                ], 200);
+            } else {
+                return response()->json([
+                    'message' => 'Data not found'
+                ]);
+            } 
         }
     }
 
