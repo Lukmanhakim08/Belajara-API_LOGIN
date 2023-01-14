@@ -37,23 +37,26 @@ class BarangController extends Controller
             'nama_barang' => 'required',
             'harga_barang'=> 'required|numeric',
             'stok_barang' => 'required|numeric',
-            'foto_barang' => 'required|max:1024',
+            'deskripsi'   => 'required',
         ]);
 
-        $filename="";
-        if($request->hasFile('foto_barang')){
-            $filename=$request->file('foto_barang')->store('barang','public');
-        }else{
-            $filename=null;
-        }
+        // $filename="";
+        // if($request->hasFile('foto_barang')){
+        //     $filename=$request->file('foto_barang')->store('barang','public');
+        // }else{
+        //     $filename=null;
+        // }
 
-        $data->nama_barang = $request->nama_barang;
+        $data->nama_barang  = $request->nama_barang;
         $data->harga_barang = $request->harga_barang;
-        $data->stok_barang = $request->stok_barang;
-        $data->foto_barang = $filename;
+        $data->stok_barang  = $request->stok_barang;
+        $data->deskripsi    = $request->deskripsi;
         $result = $data->save();
         if ($result) {
-            return new ResourceApi(true, 'Data berhasil di simpan', $data);
+            return response()->json([
+                'message' => 'Data barang berhasil di tambahkan',
+            ], 200);
+            // return new ResourceApi(true, 'Data berhasil di simpan', $data);
         } else {
             return response()->json($request->errors(), 422);
         }

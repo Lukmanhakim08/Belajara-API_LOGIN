@@ -18,7 +18,8 @@ return new class extends Migration
             $table->string('nama_barang', 100);
             $table->char('harga_barang', 20);
             $table->char('stok_barang', 20);
-            $table->string('foto_barang', 100);
+            $table->string('deskripsi', 100);
+            // $table->string('foto_barang', 100);
             $table->timestamps();
         });
     }
